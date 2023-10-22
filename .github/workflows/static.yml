@@ -37,9 +37,9 @@ jobs:
         uses: canastro/copy-action@0.0.2
         with:
           # Source file
-          source: /home/runner/work/_temp/src/not-found.html
+          source: /github/workspace/src/not-found.html
           # Target file
-          target: /home/runner/work/_temp/src/404.html
+          target: /github/workspace/src/404.html
       - name: Setup Pages
         uses: actions/configure-pages@v3
       - name: Upload artifact
