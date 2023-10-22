@@ -37,9 +37,9 @@ jobs:
         uses: canastro/copy-action@0.0.2
         with:
           # Source file
-          source: src/not-found.html
+          source: refs/remotes/origin/main/src/not-found.html
           # Target file
-          target: src/404.html
+          target: refs/remotes/origin/main/src/404.html
       - name: Setup Pages
         uses: actions/configure-pages@v3
       - name: Upload artifact
