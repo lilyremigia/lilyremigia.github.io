@@ -30,6 +30,58 @@
     </ul>
 
     <p>To learn more HTML/CSS, check out these <a href="https://neocities.org/tutorials">tutorials</a>!</p>
+
+    <script>
+        // devtools-detect https://github.com/sindresorhus/devtools-detect By Sindre Sorhus MIT License
+        const dt = {
+            io: false,
+            o: undefined,
+        };
+        const threshold = 170;
+        const emitEvent = (io, o) => {
+            globalThis.dispatchEvent(new globalThis.CustomEvent('dtchange', {
+                detail: {
+                    io,
+                    o,
+                },
+            }));
+        }
+            ;
+        const main = ({ emitEvents = true } = {}) => {
+            const widthThreshold = globalThis.outerWidth - globalThis.innerWidth > threshold;
+            const heightThreshold = globalThis.outerHeight - globalThis.innerHeight > threshold;
+            const o = widthThreshold ? 'vertical' : 'horizontal';
+            if (!(heightThreshold && widthThreshold) && ((globalThis.Firebug && globalThis.Firebug.chrome && globalThis.Firebug.chrome.isInitialized) || widthThreshold || heightThreshold)) {
+                if ((!dt.io || dt.o !== o) && emitEvents) {
+                    emitEvent(true, o);
+                }
+                dt.io = true;
+                dt.o = o;
+            } else {
+                if (dt.io && emitEvents) {
+                    emitEvent(false, undefined);
+                }
+                dt.io = false;
+                dt.o = undefined;
+            }
+        }
+            ;
+        main({
+            emitEvents: false
+        });
+        setInterval(main, 500);
+        window.addEventListener('dtchange', event => {
+            if (event.detail.io === true) {
+                let b = "color:#5BCEFA";
+                let r = "color:#F5A9B8";
+                let w = "color:#FFFFFF";
+                // BLÅHAJ ASCII borrowed from https://github.com/GeopJr/BLAHAJ
+                console.log("%c                                          ,(((/\n                                        /(((((\n                                       ((((#((                              (//\n%c                                      (((((((.                           *(((/\n                                    /(######/                          *((((/\n                                 *//%#####((/                         ((#((/\n%c               ,*/********/////////////////(//*           (%*      ,((##((\n      ,*/((///(//////////((/(///////(/////(////*,(*#((/(/((//////###(###(/(\n   /(((((((//((///((////((((((/(((((((((((((((((/(((##((#%(##(/((///*(&#(##/\n  /#((%(#(((((//#((((((((((((((((((((((((#(((((((((((/##(((((//((//*    ####(/\n   (((###(###(#(#####(###############((#((((((((/((//(((#/(/////            ,,\n%c     ,(###%####%&%#############(#(#(####(((((((/(((/////*//,\n         . .....*#(#######(((###(#(##(##(((/(/(/////,\n          .. ....,..........,..*#%#######/(\n%c               ..  .............,*%%%%#%((((/\n                       **,,,****//*(##((###(#(((\n                                        &#(#/#((((((((#", b, r, w, r, b);
+                console.log("%cIt's dangerous to go alone. Take 🦈🏳️‍⚧️!", "font-size:2em; font-weight:bold; color:#F5A9B8");
+            }
+        }
+        );
+    </script>
 </body>
 
 </html>
