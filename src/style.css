@@ -4,6 +4,17 @@
 
 body {
     color: #46143F;
-    background-color: #ECCBF0;
+    background: linear-gradient(to bottom, #7acbf5 0 5%, #eaacb8 20% 40%, #fff 41% 59%, #eaacb8 60% 80%, #7acbf5 95% 100%);
+    background-attachment: fixed;
     font-family: Verdana;
+}
+
+#age {
+    font-weight: bold;
+    font-style: italic;
+}
+
+#name {
+    font-weight: bold;
+
 }

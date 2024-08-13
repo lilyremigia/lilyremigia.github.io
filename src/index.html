@@ -8,29 +8,41 @@
     <!-- The style.css file allows you to change the look of your web pages.
          If you include the next line in all your web pages, they will all share the same look.
          This makes it easier to make new pages for your site. -->
-    <link href="/style.css" rel="stylesheet" type="text/css" media="all">
+    <link href="./style.css" rel="stylesheet" type="text/css" media="all">
 </head>
 
 <body>
     <h1>Welcome to my Website!</h1>
 
-    <p>This is a paragraph! Here's how you make a link: <a href="https://neocities.org">Neocities</a>.</p>
+    <p>I am <span id="name">Lily Remigia</span> a 🏳️‍⚧️♀️&#xfe0f in the closet in 🇭🇺&#xfe0f, but you can call me <a
+            href="https://en.pronouns.page/@lilyremigia" target="_blank">these</a>. I have already spent
+        <span id="age"></span> summers in
+        this world. I'm also ⚢&#xfe0f.
+    </p>
 
-    <p>Here's how you can make <strong>bold</strong> and <em>italic</em> text.</p>
-
-    <p>Here's how you can add an image:</p>
-    <img src="/neocities.png">
-
-    <p>Here's how to make a list:</p>
-
+    <p>I like doing the following things:
     <ul>
-        <li>First thing</li>
-        <li>Second thing</li>
-        <li>Third thing</li>
+        <li><a href="https://eu.finalfantasyxiv.com/lodestone/character/41311566/" target="_blank">playing FFXIV</a>
+        </li>
+        <li><a href="https://www.scribblehub.com/series/1111133/done-with-earth-time-for-etherysia/"
+                target="_blank">writing a webnovel</a></li>
+        <li><a href="https://github.com/lilyremigia/" target="_blank">doing hobby programming projects</a></li>
     </ul>
+    </p>
 
-    <p>To learn more HTML/CSS, check out these <a href="https://neocities.org/tutorials">tutorials</a>!</p>
 
+    <script>
+        // Update my age
+        const oneDay = 24 * 60 * 60 * 1000; // hours*minutes*seconds*milliseconds
+        const birthDate = new Date(2000, 5, 20);
+        const nowDate = Date.now();
+
+        const diffDays = Math.round(Math.abs((nowDate - birthDate) / oneDay));
+        const age = Math.floor(diffDays / 365.25);
+
+        const ageElement = document.getElementById("age");
+        ageElement.innerText = age.toString();
+    </script>
     <script>
         // devtools-detect https://github.com/sindresorhus/devtools-detect By Sindre Sorhus MIT License
         const dt = {
